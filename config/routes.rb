@@ -9,5 +9,12 @@ Rails.application.routes.draw do
       resources :expense
     end
   end
-  root to: "home#index"
+
+  authenticated(:user) do
+    root to: 'category#index', as: :authenticated_root
+  end
+  unauthenticated(:user) do
+    root 'home#index'
+  end
+
 end

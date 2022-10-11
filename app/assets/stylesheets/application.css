@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+.logo {
+  color: #434b54;
+  margin-top: 25vh;
+}
+
+.btn-login {
+  background-color: #3778c2;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.btn-login:hover {
+  background-color: #2a5e9b;
+  color: #fff;
+}
+
+.btn-logout {
+  background-color: #fff;
+  color: #3778c2;
+  padding: 8px;
+  text-align: center;
+}
+
+.btn-logout:hover {
+  border: 1px solid #3778c2;
+}
+
+.btn-logs {
+  margin-top: 25vh;
+}
+
+.navibar {
+  background-color: #3778c2;
+  color: #fff;
+}
+
+.finapp {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.icon-img {
+  height: 150px;
+  width: 250px;
+}
