@@ -1,7 +1,14 @@
+require 'date'
+
 class CategoryController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @categories = @user.categories.order('created_at DESC')
+  end
+
+  def show
+    @category = Category.find(params[:id])
+    @expenses = @category.expenses.order('created_at DESC')
   end
 
   def new

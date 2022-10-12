@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <%= form_with model: Category, url: user_category_index_path(current_user.id), data: { turbo: false } do |f| %>
     <div class="field form-group " >
       <%= f.text_field :name, class:"form-control", autofocus: true, placeholder: "Category name", value: '' %><br/>
@@ -13,4 +13,4 @@
     </div>  
   <% end %>
 </div>
-<%= link_to "Back", :back %>
+<%= link_to "🔙 Back", user_category_index_path(current_user), class: "back-btn btn btn-sm"%><br/>

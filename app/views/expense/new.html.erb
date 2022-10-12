@@ -1,0 +1,22 @@
+<div class="container">
+  <%= form_with model: Expense, url: expense_index_path, data: { turbo: false } do |f| %>
+    <div class="field form-group " >
+      <%= f.text_field :name, class:"form-control", autofocus: true, placeholder: "Expense", value: '' %><br/>
+    </div>
+
+    <div class="field form-group " >
+      <%= f.number_field :amount, class:"form-control", placeholder: "Amount" %><br/>
+    </div>
+
+
+    <div>
+      <%= f.label "Please select a category" %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" } %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: 'btn btn-secondary' %>
+    </div>  
+  <% end %>
+</div>
+<%= link_to "🔙 Back", user_category_index_path(current_user), class: "back-btn btn btn-sm"%><br/>

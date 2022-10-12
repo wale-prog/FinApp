@@ -33,10 +33,18 @@
       </div>      
     </div>
     <div>
-      <% if request.fullpath == user_category_index_path(current_user)  %>
+      <% if !user_signed_in?%>
+        <p></p>
+      <% elsif request.fullpath == new_expense_path%>
+        <P>Add new expense</P>
+      <% elsif request.fullpath == expense_index_path%>
+        <P>Expense page</P>
+      <% elsif request.fullpath == user_category_index_path(current_user) %>
         <p>Tracker Category</p>
       <% elsif request.fullpath == new_user_category_path(current_user) %>
         <p>Create Category</p>
+      <% elsif user_signed_in? || request.fullpath == user_category_path(current_user, @category.id) %>
+        <p>Details</p>
       <% end %>
     </div>
     <p class= "finapp">FinApp</p>

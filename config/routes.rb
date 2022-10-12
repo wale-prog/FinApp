@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :user do 
     resources :category do
-      resources :expense
     end
   end
+
+  resources :expense
 
   authenticated(:user) do
     root to: 'category#index', as: :authenticated_root

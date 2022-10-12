@@ -13,7 +13,6 @@
 
   <body>
     <%= render 'shared/navbar' unless request.fullpath == root_path && !user_signed_in? %>
-    <div class='container'>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
