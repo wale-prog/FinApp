@@ -6,11 +6,6 @@ class CategoryController < ApplicationController
     @categories = @user.categories.order('created_at DESC')
   end
 
-  def show
-    @category = Category.find(params[:id])
-    @expenses = @category.expenses.order('created_at DESC')
-  end
-
   def new
     @category = Category.new
   end

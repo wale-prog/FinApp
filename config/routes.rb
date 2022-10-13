@@ -4,12 +4,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :user do 
-    resources :category do
-    end
+  resources :user, only: [:new] do 
+    resources :category, only: [:index, :new, :create]
   end
-
-  resources :expense
+  resources :expense, only: [:new, :create, :index]
 
   authenticated(:user) do
     root to: 'category#index', as: :authenticated_root

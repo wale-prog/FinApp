@@ -1,4 +1,7 @@
 <div class="container">
+<div>
+  <%= link_to "🔙 Back", expense_index_path({category_id: params[:category_id]}), class: "back-btn-new btn btn-sm"%><br/>
+</div><br/>
   <%= form_with model: Expense, url: expense_index_path, data: { turbo: false } do |f| %>
     <div class="field form-group " >
       <%= f.text_field :name, class:"form-control", autofocus: true, placeholder: "Expense", value: '' %><br/>
@@ -11,12 +14,11 @@
 
     <div>
       <%= f.label "Please select a category" %>
-      <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" } %>
-    </div>
+      <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" }, required: true %>
+    </div><br/><br/>
 
     <div class="actions">
-      <%= f.submit "Save", class: 'btn btn-secondary' %>
+      <%= f.submit "Save", class: 'btn add-cat' %>
     </div>  
   <% end %>
 </div>
-<%= link_to "🔙 Back", user_category_index_path(current_user), class: "back-btn btn btn-sm"%><br/>
