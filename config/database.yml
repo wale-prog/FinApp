@@ -26,9 +26,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= Rails.application.credentials.DB_NAME.dev_db %>
-  username: <%= Rails.application.credentials.DB_USERNAME.dev_db %>
-  password: <%= Rails.application.credentials.DB_PASSWORD.dev_db %>
+  
  
 
   # The specified database role being used to connect to postgres.
@@ -63,9 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default 
-  database: <%= Rails.application.credentials.DB_NAME.test_db %>
-  username: <%= Rails.application.credentials.DB_USERNAME.test_db %>
-  password: <%= Rails.application.credentials.DB_PASSWORD.test_db %>
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -89,5 +85,5 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV["DATABASE_URL"] %>
+  url: "postgres://igxngaezuoiapk:1296734d6fea891579fb598b2712b67b12b57c012410b3df9bd17c8c6d1f5826@ec2-44-199-22-207.compute-1.amazonaws.com:5432/daej9mhrf5dumg"
   

@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   # HEROKU APP SETTINGS 
-  host = ENV['DEFAULT_URL_HOST'] || "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  # host = ENV['DEFAULT_URL_HOST'] || "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
   protocol = config.force_ssl ? 'https' : 'http'
 
   ENV['DATABASE_URL'] ||= "postgres://igxngaezuoiapk:1296734d6fea89157pute-1.amazonaws.com:5432/daej9mhrf5dumpute-1.amazonaws.com:5432/daej9mhrf5dumg"
