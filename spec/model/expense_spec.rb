@@ -34,6 +34,23 @@ RSpec.describe Expense, type: :model do
     @expense.amount = 0
     expect(@expense).to_not be_valid
   end
+
+  # validate associations
+  describe 'Expense Associations' do
+    it 'should have many exp_cats' do
+      assc = Expense.reflect_on_association(:exp_cats)
+      expect(assc.macro).to eq(:has_many)
+    end
+    it 'should have many categories through exp_cat' do
+      assc = Expense.reflect_on_association(:categories)
+      expect(assc.macro).to eq(:has_many)
+    end
+    it 'should belong to user' do
+      assc = Expense.reflect_on_association(:user)
+      expect(assc.macro).to eq(:belongs_to)
+    end
+  end
+
   after(:all) do
     User.destroy_all
     Expense.destroy_all

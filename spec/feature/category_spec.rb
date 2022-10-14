@@ -29,7 +29,7 @@ RSpec.describe 'Categories', type: :feature do
     fill_in 'user_name', with: 'Groceries'
     fill_in 'user_icon', with: 'fas fa-shopping-cart'
     click_button 'Add Category'
-    expect(page).to have_content('Groceries')
+    expect(page).to have_content('Category was successfully created.')
   end
 
   it 'Navigates to homepage when user clicks on back button' do

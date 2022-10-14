@@ -34,6 +34,22 @@ RSpec.describe Category, type: :model do
       expect(@category.sum_amount).to eq(1500)
     end
   end
+  # validate associations
+  describe 'Categories Associations' do
+    it 'Should have many expenses' do
+      assc = Category.reflect_on_association(:expenses)
+      expect(assc.macro).to eq :has_many
+    end
+    it 'Should have many exp_cats' do
+      assc = Category.reflect_on_association(:exp_cats)
+      expect(assc.macro).to eq :has_many
+    end
+    it 'Should belong to User' do
+      assc = Category.reflect_on_association(:user)
+      expect(assc.macro).to eq(:belongs_to)
+    end
+  end
+
   after(:all) do
     User.destroy_all
     Category.destroy_all
