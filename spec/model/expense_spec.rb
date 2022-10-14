@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
   before(:all) do
-    @user = User.create(name: 'John')
+    @user = User.create(name: 'John', email: 'john@gmail.com', password: '123456')
     @expense = @user.expenses.create(name: 'Rent', amount: 1000)
   end
 
@@ -33,5 +33,9 @@ RSpec.describe Expense, type: :model do
   it 'is not valid with a zero amount' do
     @expense.amount = 0
     expect(@expense).to_not be_valid
+  end
+  after(:all) do
+    User.destroy_all
+    Expense.destroy_all
   end
 end

@@ -1,27 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  before(:all) do
-    @user = User.create(name: 'John')
-    @category = @user.categories.create(name: 'Rent', icon: 'fas fa-home')
+  before(:each) do
+    @user = User.create(name: 'John', email: 'john@gmail.com', password: '123456')
+    @category = Category.create(name: 'Rent', icon: 'fas fa-home', user_id: @user.id)
+    @expense1 = @user.expenses.create(name: 'Rent', amount: 1000)
+    @expense2 = @user.expenses.create(name: 'Groceries', amount: 500)
   end
+  describe 'Validations' do
+    it 'is valid with valid attributes' do
+      expect(@category).to be_valid
+    end
 
-  it 'is valid with valid attributes' do
-    expect(@category).to be_valid
+    it 'is not valid without a name' do
+      @category.name = nil
+      expect(@category).to_not be_valid
+    end
+
+    it 'is not valid without an icon' do
+      @category.icon = nil
+      expect(@category).to_not be_valid
+    end
+
+    it 'is not valid without a user' do
+      @category.user_id = nil
+      expect(@category).to_not be_valid
+    end
   end
-
-  it 'is not valid without a name' do
-    @category.name = nil
-    expect(@category).to_not be_valid
+  context 'Custom methods' do
+    it 'sums the amount of expenses' do
+      ExpCat.create(expense_id: @expense1.id, category_id: @category.id)
+      ExpCat.create(expense_id: @expense2.id, category_id: @category.id)
+      expect(@category.sum_amount).to eq(1500)
+    end
   end
-
-  it 'is not valid without an icon' do
-    @category.icon = nil
-    expect(@category).to_not be_valid
-  end
-
-  it 'is not valid without a user' do
-    @category.user_id = nil
-    expect(@category).to_not be_valid
+  after(:all) do
+    User.destroy_all
+    Category.destroy_all
   end
 end

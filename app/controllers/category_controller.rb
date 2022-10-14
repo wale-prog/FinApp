@@ -1,5 +1,3 @@
-require 'date'
-
 class CategoryController < ApplicationController
   def index
     @user = current_user
