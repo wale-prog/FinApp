@@ -6,11 +6,21 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # HEROKU APP SETTINGS 
+  # host = ENV['DEFAULT_URL_HOST'] || "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  protocol = config.force_ssl ? 'https' : 'http'
+
+  ENV['DATABASE_URL'] ||= "postgres://igxngaezuoiapk:1296734d6fea89157pute-1.amazonaws.com:5432/daej9mhrf5dumpute-1.amazonaws.com:5432/daej9mhrf5dumg"
+
+  
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+
+
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
