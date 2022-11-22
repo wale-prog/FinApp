@@ -53,7 +53,7 @@ Contributions, issues, and feature requests are welcome!
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
+- Shout out to [Gregoire Vella](https://www.behance.net/gregoirevella) on Behance for the design guidelines
 - Hat tip to Microverse
 
 ## 📝 License

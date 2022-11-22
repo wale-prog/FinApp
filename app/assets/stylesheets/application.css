@@ -13,14 +13,32 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: #f5f6f8;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert-style {
+  color: #fff;
+  font-size: 14px;
+  background-color: #5fb523;
+  padding: 6px;
+  cursor: pointer;
+}
+
 .logo {
   color: #434b54;
   margin-top: 25vh;
 }
 
 .btn-login {
-  background-color: #fff;
-  color: #3778c2;
+  background-color: #3778c2;
+  color: #fff;
   border: 1px solid #3778c2;
   padding: 8px;
   text-align: center;
@@ -28,17 +46,33 @@
 }
 
 a.btn-link {
-  color: #3778c2;
+  color: #fff;
   text-decoration: none;
 }
 
 .btn-login:hover {
-  background-color: #3778c2;
-  color: #fff;
+  background-color: #fff;
+  color: #3778c2;
 }
 
 .btn-logs {
   margin-top: 25vh;
+}
+
+.btn-signup {
+  background-color: #3778c2;
+  color: #3778c2;
+  border: 1px solid #fff;
+  padding: 8px;
+  text-align: center;
+
+  /* margin-bottom: 4px; */
+  width: 100%;
+}
+
+.btn-signup:hover {
+  background-color: #fff;
+  color: #3778c2;
 }
 
 .navibar {
@@ -144,4 +178,14 @@ a.back-btn-new {
 
 .nav-link {
   color: #fff;
+}
+
+.btn-login-small {
+  background-color: #3778c2;
+  color: #fff;
+}
+
+.btn-login-small:hover {
+  background-color: #f5f6f8;
+  color: #3778c2;
 }
