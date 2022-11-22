@@ -5,20 +5,20 @@ import "controllers"
 const alert = document.querySelector('.alert');
 const notice = document.querySelector('.notice');
 
-if (alert.innerText) {
-  alert.classList.remove('d-none');
-  alert.classList.add('alert-style');
+const timeOut = (element) => {
+  element.classList.remove('d-none');
+  element.classList.add('alert-style');
   setTimeout(() => {
-    alert.classList.add('d-none');
-    alert.classList.remove('alert-style');
+    element.classList.add('d-none');
+    element.classList.remove('alert-style');
   }, 5000);
 }
 
-if (notice.innerText) {
-  notice.classList.remove('d-none');
-  notice.classList.add('alert-style');
-  setTimeout(() => {
-    notice.classList.add('d-none');
-    notice.classList.remove('alert-style');
-  }, 5000);
+if (alert.innerText) {
+  timeOut(alert);
 }
+
+if (notice.innerText) {
+  timeOut(notice);
+}
+
