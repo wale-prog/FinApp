@@ -6,18 +6,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
  
 
-development:
-  <<: *default
-  database: FinApp_development
-  username: <%= Rails.application.config_for(:identity).dig(:username) %>
-  password: <%= Rails.application.config_for(:identity).dig(:password) %>
-
-test:
-  <<: *default
-  database: FinApp_test
-  username: <%= Rails.application.config_for(:identity).dig(:username) %>
-  password: <%= Rails.application.config_for(:identity).dig(:password) %>
-
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
