@@ -20,5 +20,8 @@ test:
 
 production:
   <<: *default
-  url: ENV['DATABASE_URL']
+  url: <%= ENV['DATABASE_URL'] %>
+  database: fin_app_production
+  username: fin-app
+  password: <%= ENV["RENDER_DEPLOY_DATABASE_PASSWORD"]%>
   
