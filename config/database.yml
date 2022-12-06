@@ -6,8 +6,19 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
  
 
+development:
+  <<: *default
+  database: FinApp_development
+  username: <%= Rails.application.config_for(:identity).dig(:username) %>
+  password: <%= Rails.application.config_for(:identity).dig(:password) %>
+
+test:
+  <<: *default
+  database: FinApp_test
+  username: <%= Rails.application.config_for(:identity).dig(:username) %>
+  password: <%= Rails.application.config_for(:identity).dig(:password) %>
 
 production:
   <<: *default
-  url: "postgres://igxngaezuoiapk:1296734d6fea891579fb598b2712b67b12b57c012410b3df9bd17c8c6d1f5826@ec2-44-199-22-207.compute-1.amazonaws.com:5432/daej9mhrf5dumg"
+  url: ENV['DATABASE_URL']
   
