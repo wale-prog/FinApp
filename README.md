@@ -1,4 +1,4 @@
-# Recipe App
+# FinApp
 
 > Project Description
 
@@ -8,6 +8,8 @@
 - Ruby
 - Git
 - Github
+- PostgreSQL
+- JavaScript
 - Rubocop
 - RSpec
 - Stylelint
