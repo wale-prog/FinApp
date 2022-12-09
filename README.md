@@ -16,7 +16,7 @@
 ## Getting Started
 To get a local copy of the program running, follow these simple steps
 ## Demo
-[Live link](https://fin-track-app.herokuapp.com/)
+[Live link](https://rails-41po.onrender.com/)
 
 ### Prerequisites
 - IDE, preferably Visual Studio Code
